@@ -50,7 +50,6 @@ func (c *Client) ListLocations(pageURL *string) (RespShallowLocations, error) {
 		return RespShallowLocations{}, err
 	}
 
-	fmt.Println("data", string(dat))
 	locationsResp := RespShallowLocations{}
 	err = json.Unmarshal(dat, &locationsResp)
 	if err != nil {
