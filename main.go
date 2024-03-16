@@ -4,6 +4,7 @@ import (
 	"time"
 
 	"github.com/natac13/pokedex/internal/pokeapi"
+	"github.com/natac13/pokedex/internal/pokedex"
 )
 
 func main() {
@@ -11,6 +12,7 @@ func main() {
 
 	cfg := &config{
 		pokeapiClient: pokeClient,
+		userPokedex:   pokedex.NewUserPokedex(),
 	}
 
 	startRepl(cfg)

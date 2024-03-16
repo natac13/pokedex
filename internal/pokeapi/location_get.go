@@ -8,11 +8,6 @@ import (
 )
 
 func (c *Client) GetLocation(name string) (RespLocation, error) {
-
-	if len(name) == 0 {
-		return RespLocation{}, fmt.Errorf("name is required")
-	}
-
 	url := baseURL + "/location-area/" + name
 
 	if cachedData, found := c.cache.Get(url); found {
