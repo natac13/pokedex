@@ -15,8 +15,7 @@ func (c *Client) GetLocation(name string) (RespLocation, error) {
 
 	url := baseURL + "/location-area/" + name
 
-	cachedData, found := c.cache.Get(url)
-	if found {
+	if cachedData, found := c.cache.Get(url); found {
 		locationResp := RespLocation{}
 		err := json.Unmarshal(cachedData, &locationResp)
 		if err != nil {

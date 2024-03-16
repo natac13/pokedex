@@ -27,10 +27,10 @@ func startRepl(cfg *config) {
 		}
 
 		commandName := words[0]
-		args := words[1:]
-
-		fmt.Println("Command:", commandName)
-		fmt.Println("Args:", args)
+		args := []string{}
+		if len(words) > 1 {
+			args = words[1:]
+		}
 
 		command, exists := getCommands()[commandName]
 		if exists {
