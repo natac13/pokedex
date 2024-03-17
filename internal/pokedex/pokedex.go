@@ -33,6 +33,8 @@ func (p *UserPokedex) GetPokemon(name string) (pokeapi.RespPokemon, error) {
 	return pokemon, nil
 }
 
+// ListPokemon returns a slice of strings containing the names of all the Pokemon
+// that the user has caught in the Pokedex.
 func (p *UserPokedex) ListPokemon() []string {
 	var pokemon []string
 	for k := range p.caughtPokemon {
@@ -47,18 +49,6 @@ func (p *UserPokedex) Inspect(name string) error {
 		return err
 	}
 
-	// Height: 3
-	//Weight: 18
-	//Stats:
-	//-hp: 40
-	//-attack: 45
-	//-defense: 40
-	//-special-attack: 35
-	//-special-defense: 35
-	//-speed: 56
-	//Types:
-	//- normal
-	//- flying
 	fmt.Printf("Name: %s\n", pokemon.Name)
 	fmt.Printf("Height: %d\n", pokemon.Height)
 	fmt.Printf("Weight: %d\n", pokemon.Weight)
